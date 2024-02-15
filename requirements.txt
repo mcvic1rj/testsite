@@ -1,4 +1,2 @@
 feedgen
 requests
-json
-datetime
