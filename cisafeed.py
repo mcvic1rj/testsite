@@ -32,6 +32,5 @@ def add_feed_entry(feed, kev_item):
     fe.id(kev_item['cveID'])
     fe.link({"href":f"https://nvd.nist.gov/vuln/detail/{kev_item['cveID']}"})
     fe.title(kev_item['vulnerabilityName'])
-    
 [add_feed_entry(fg, x) for x in kevdb['vulnerabilities']]
-fg.rss_file('cisa-kev-rss.xml')
+fg.rss_file('feeds/cisa-kev-rss.xml')
