@@ -10,7 +10,7 @@ fg.author( {'name':'Ryan McVicar','email':'ryan@mcvicar.io'} )
 fg.link( href='https://www.cisa.gov/known-exploited-vulnerabilities-catalog', rel='alternate' )
 fg.logo('https://mcvic1rj.github.io/testsite/63107699-dcce-4688-a94a-6afa238d59b4.webp')
 fg.subtitle('An alternate way to get your KEV Data')
-fg.link( href='https://mcvic1rj.github.io/testsite/rss.xml', rel='self' )
+fg.link( href='https://mcvic1rj.github.io/testsite/cisa-kev-rss.xml', rel='self' )
 fg.language('en')
 def add_feed_entry(feed, kev_item):
     fe=feed.add_entry()
@@ -25,7 +25,7 @@ def add_feed_entry(feed, kev_item):
         fe.category({"term":kev_item['vendorProject']})
     content_blob+=f'{kev_item["shortDescription"]}<br><br><b>Required Action(s):</b> {kev_item["requiredAction"]}'
     if (kev_item['dueDate']):
-        content_blob+=f'\n\n<b>Required Action(s):</b> {kev_item["requiredAction"]}'
+        content_blob+=f'<br><br><b>Due Date:</b> {kev_item["dueDate"]}'
     fe.content(content_blob)
     fe.description(kev_item['shortDescription'])
     fe.pubDate(datetime.strptime(kev_item['dateAdded'], "%Y-%m-%d").astimezone())
