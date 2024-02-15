@@ -26,8 +26,8 @@ def add_feed_entry(feed, kev_item):
     content_blob+=f'{kev_item["shortDescription"]}<br><br><b>Required Action(s):</b> {kev_item["requiredAction"]}'
     if (kev_item['dueDate']):
         content_blob+=f'<br><br><b>Due Date:</b> {kev_item["dueDate"]}'
-    fe.content(content_blob.replace('�',''))
-    fe.description((kev_item['shortDescription']).replace('�',''))
+    fe.content(content_blob.replace('�','\''))
+    fe.description((kev_item['shortDescription']).replace('�','\''))
     fe.pubDate(datetime.strptime(kev_item['dateAdded'], "%Y-%m-%d").astimezone())
     fe.id(kev_item['cveID'])
     fe.link({"href":f"https://nvd.nist.gov/vuln/detail/{kev_item['cveID']}"})
